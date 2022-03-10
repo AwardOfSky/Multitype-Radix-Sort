@@ -149,3 +149,8 @@ Best performance results were verified for `-Ofast` when compared to `-O3`, even
 - Because of the macro expansion mechanics, it is not possible to support rather common types such as `unisgned long long` or `long double`. This is really a limitation of using macros, not so much of the actual algorithm.
 - Because there is a need to arrange 256 buckets in each iteration, this algorithm might not be as performant as qsort() for smaller arrays. The turning point should still be for relatively small sizes nonetheless (typically for arrays of 100 to 1000 elements, depending on the machine and the type you are sorting).
 - It is assumed that a float is no larger than 4 bytes and that a double is no larger than 8 bytes (possibly some problems in some weird system(?)).
+
+## Todo
+
+- Add multithreading support.
+- Add benchmark program against other standard sorts.
