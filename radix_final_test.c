@@ -1,4 +1,3 @@
-/* gcc -o testf.exe -std=c89 -Wall -Ofast radix_final_test.c */
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
