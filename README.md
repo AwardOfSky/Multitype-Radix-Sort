@@ -15,7 +15,9 @@ Ease of implementation is subjective so I will not dwell too much into it ... bu
 The argument that comparison sorts always work for all types is, in fact, the strongest point against radix sort. <br>
 While it is true that the way bucket assigning works for radix sort is dependent on the representation of the data, it is also true that, in essence, there are only three different bit representations to tackle: floating point, unsigned and signed. <br>
 Besides, C has these dangerous things called macros that can either make you shoot yourself in the foot or make some real magic happen. <br>
-Regarding speed, saying that quicksort is "fast enough" as an argument is ... well ... cute.<br>
+Regarding speed, saying that quicksort is "fast enough" as an argument is...well...cute.<br>
+
+I understand that there are many cases where radix sort might not be preferred, but at this point always using quicksort or heapsort for eveything seems like a waste of time...literally.
 
 
 ## Description
