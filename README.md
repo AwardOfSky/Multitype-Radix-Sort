@@ -1,5 +1,5 @@
 # Multitype-Radix-Sort
-A high-performant C alternative to sorting large arrays with support for most standard types and all types defined in stdint.h.
+A high-performant C alternative to sorting with support for most standard types and all types defined in stdint.h.
 
 ## Background
 
@@ -32,9 +32,9 @@ The function is a macro written in ANSI C (C89).
 
  - Support for 36 types, including every standard **one-worded C type** as well as all types from **stdint.h** (see list below).
  - Support for **structure sorting** (as long as the member to sort corresponds to one of the supported types).
+ - **Average, Best and Worst case** time complity is **O(kn)**, with k being two times the number of bytes of the type to sort. Speed is significantly better than C's inlined qsort(), with expected speedups easily reaching about one order of magnitude. For instance, sorting an array with 10M elements is about 10x faster for `int` types, more for smaller types (`chars` are more than 70x faster) and less for larger types (`doubles` are the slowest at about 4x faster). This was tested in my local desktop computer (Intel® Core™ i7-6700 8MB cache with 16GB(2x8) RAM @2666Mhz).
  - Parameterized ascending and descending sorting.
  - Backwards compatible (written in **ANSI C**, compiled with the -std=c89 flag).
- - Speed is significantly better than C's inlined qsort(). Expected speedups can easily reach about one order of magnitude. For instance, sorting an array with 10M elements is about 10x faster for `int` types, more for smaller types (`chars` are more than 70x faster) and less for larger types (`doubles` are the slowest at about 4x faster). This was tested in my local desktop computer (Intel® Core™ i7-6700 8MB cache with 16GB(2x8) RAM @2666Mhz).
  - No pointer dereferencing for floating-point conversions (so no UB) and no -Wall warnings for the macro expansion of the expected parameterizations.
  - No macro namespace cluttering -  intricate names and `_R__` suffix at the end of each of the helper macros 
 
@@ -143,7 +143,7 @@ Best performance results were verified for `-Ofast` when compared to `-O3`, even
 
 ## Limitations
 
+- This implementation follows an **out-of-place** approach, meaning it uses a helper array to sort the original array, adding some memory overhead that can be critical for some memory heavy applications.
 - Because of the macro expansion mechanics, it is not possible to support rather common types such as `unisgned long long` or `long double`. This is really a limitation of using macros, not so much of the actual algorithm.
 - Because there is a need to arrange 256 buckets in each iteration, this algorithm might not be as performant as qsort() for smaller arrays. The turning point should still be for relatively small sizes nonetheless (typically for arrays of 100 to 1000 elements, depending on the machine and the type you are sorting).
 - It is assumed that a float is no larger than 4 bytes and that a double is no larger than 8 bytes (possibly some problems in some weird system(?)).
-- This implementation follows an **out-of-place** approach, meaning it uses a helper array to sort the original array, adding some memory overhead that can be critical for some memory heavy applications.
