@@ -3,7 +3,7 @@ A high-performance C alternative to sort large arrays with support for most stan
 
 ## Background
 
-Comparison-based sorting is, currently still king across many libraries and programming languages.
+Currently, comparison-based sorting is still king across many libraries and programming languages.
 However, it is proven that any comparison-based sorting algorithm requires at least nlog(n) comparisons to 
 sort a given array.<br>
 Bucket-based algorithms such as radix sort, on the other hand, do not require comparisons at all and are instead based on the idea that we can sort an array by iteratively assigning buckets to each element (according to a subset of itself) and reorder the whole array based on this division.
