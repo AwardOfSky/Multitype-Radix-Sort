@@ -34,7 +34,7 @@ The function is a macro written in ANSI C (C89).
  - Support for **structure sorting** (as long as the member to sort corresponds to one of the supported types).
  - Parameterized ascending and descending sorting.
  - Backwards compatible (written in **ANSI C**, compiled with the -std=c89 flag).
- - Speed is significantly better than C's inlined qsort(). Expected speedups can easily reach about one order of magnitude. For instance, sorting an array with 10M elements is about 10x faster `int` types, slighly more for smaller types (`chars` are more than 70x faster) and less for larger types (`doubles` are the slowest at about 4x faster). This was tested in my local desktop computer (Intel® Core™ i7-6700 8MB cache with 16GB dual RAM @2666Mhz).
+ - Speed is significantly better than C's inlined qsort(). Expected speedups can easily reach about one order of magnitude. For instance, sorting an array with 10M elements is about 10x faster `int` types, slighly more for smaller types (`chars` are more than 70x faster) and less for larger types (`doubles` are the slowest at about 4x faster). This was tested in my local desktop computer (Intel® Core™ i7-6700 8MB cache with 16GB(2x8) RAM @2666Mhz).
  - No pointer dereferencing for floating-point conversions (so no UB) and no -Wall warnings for the macro expansion of the expected parameterizations.
  - No macro namespace cluttering -  intricate names and `_R__` suffix at the end of each of the helper macros 
 
