@@ -1,5 +1,5 @@
 # Multitype-Radix-Sort
-A high-performant C alternative to sorting large arrays with support for most standard C types and all types defined in stdint.h
+A high-performant C alternative to sorting large arrays with support for most standard types and all types defined in stdint.h.
 
 ## Background
 
