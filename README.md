@@ -33,7 +33,7 @@ The function is a macro written in ANSI C (C89).
  - Support for 36 types, including every standard **one-worded C type** as well as all types from **stdint.h** (see list below).
  - Support for **structure sorting** (as long as the member to sort corresponds to one of the supported types).
  - Parameterized ascending and descending sorting.
- - Backwards compatible (written in **ANSI C**, compile with -std=c89).
+ - Backwards compatible (written in **ANSI C**, compiled with the -std=c89 flag).
  - Speed is significantly better than C's inlined qsort(). Expected speedups can easily reach about one order of magnitude. For instance, sorting an array with 10M elements is about 10x faster `int` types, slighly more for smaller types (`chars` are more than 70x faster) and less for larger types (`doubles` are the slowest at about 4x faster). This was tested in my local desktop computer (Intel® Core™ i7-6700 8MB cache with 16GB dual RAM @2666Mhz).
  - No pointer dereferencing for floating-point conversions (so no UB) and no -Wall warnings for the macro expansion of the expected parameterizations.
  - No macro namespace cluttering -  intricate names and `_R__` suffix at the end of each of the helper macros 
@@ -136,7 +136,8 @@ int main() {
 
 A testing program `radix_final_test.c` is also provided to test the speed and correctness of all supported types in your machine.
 
-Compiled with (Linux): `gcc -std=c89 -Wall -Ofast radix_final_test.c -o radix`
+Compiled with (Linux): `gcc -std=c89 -Wall -Ofast radix_final_test.c -o radix`<br>
+(best performance results were verified for `-Ofast` when compared to `-O3`).
 
 
 ## Limitations
