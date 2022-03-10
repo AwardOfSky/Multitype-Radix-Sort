@@ -17,7 +17,7 @@ While it is true that the way bucket assigning works for radix sort is dependent
 Besides, C has these dangerous things called macros that can either make you shoot yourself in the foot or make some real magic happen. <br>
 Regarding speed, saying that quicksort is "fast enough" as an argument is...well...cute.<br>
 
-I understand that there are many cases where radix sort might not be preferred, but at this point always using quicksort or heapsort for eveything seems like a waste of time...literally.
+I understand that there are many cases where radix sort might not be preferred, but at this point most of the reasoning against radix sort are excuses and always using quicksort or heapsort for eveything seems like a waste of time...literally. 
 
 
 ## Description
@@ -38,7 +38,7 @@ The function is a macro written in ANSI C (C89).
  - Parameterized ascending and descending sorting.
  - Backwards compatible (written in **ANSI C**, compiled with the -std=c89 flag).
  - No pointer dereferencing for floating-point conversions (so no UB) and no -Wall warnings for the macro expansion of the expected parameterizations.
- - No macro namespace cluttering -  intricate names and `_R__` suffix at the end of each of the helper macros 
+ - No macro namespace cluttering -  intricate names and `_R__` suffix at the end of each of the helper macros.
 
 ### Supported types:
 
