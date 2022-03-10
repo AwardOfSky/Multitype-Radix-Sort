@@ -137,7 +137,7 @@ int main() {
 A testing program `radix_final_test.c` is also provided to test the speed and correctness of all supported types in your machine.
 
 Compiled with (Linux): `gcc -std=c89 -Wall -Ofast radix_final_test.c -o radix`<br>
-(best performance results were verified for `-Ofast` when compared to `-O3`).
+Best performance results were verified for `-Ofast` when compared to `-O3`, even though the difference is not great.
 
 
 ## Limitations
