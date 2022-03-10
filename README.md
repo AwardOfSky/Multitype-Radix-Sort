@@ -41,46 +41,46 @@ The function is a macro written in ANSI C (C89).
 ### Supported types:
 
 #### Floating point types:
- - float
- - double
+ - `float`
+ - `double`
 
 #### Signed types:
- - char
- - short
- - int
- - long
- - int8_t 
- - int16_t
- - int32_t
- - int64_t
- - int_fast8_t
- - int_fast16_t
- - int_fast32_t
- - int_fast64_t
- - int_least8_t
- - int_least16_t
- - int_least32_t
- - int_least64_t
- - intptr_t
- - intmax_t
- - wchar_t
+ - `char`
+ - `short`
+ - `int`
+ - `long`
+ - `int8_t` 
+ - `int16_t`
+ - `int32_t`
+ - `int64_t`
+ - `int_fast8_t`
+ - `int_fast16_t`
+ - `int_fast32_t`
+ - `int_fast64_t`
+ - `int_least8_t`
+ - `int_least16_t`
+ - `int_least32_t`
+ - `int_least64_t`
+ - `intptr_t`
+ - `intmax_t`
+ - `wchar_t`
 
 #### Unsigned Types:
- - uint8_t
- - uint16_t
- - uint32_t
- - uint64_t
- - uint_fast8_t
- - uint_fast16_t
- - uint_fast32_t
- - uint_fast64_t
- - uint_least8_t
- - uint_least16_t
- - uint_least32_t
- - uint_least64_t
- - uintptr_t
- - uintmax_t
- - size_t
+ - `uint8_t`
+ - `uint16_t`
+ - `uint32_t`
+ - `uint64_t`
+ - `uint_fast8_t`
+ - `uint_fast16_t`
+ - `uint_fast32_t`
+ - `uint_fast64_t`
+ - `uint_least8_t`
+ - `uint_least16_t`
+ - `uint_least32_t`
+ - `uint_least64_t`
+ - `uintptr_t`
+ - `uintmax_t`
+ - `size_t`
 
 
 ## How to use
