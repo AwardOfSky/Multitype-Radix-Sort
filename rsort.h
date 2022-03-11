@@ -130,7 +130,7 @@
         if (next) {                                                     \
             continue;                                                   \
         }                                                               \
-        swap = 1 - swap;
+        swap = 1 - swap;                                                \
         if (IS_FLOATING_R__(MEM_T)) {                                   \
             if (mbit == LAST_BYTE_R__(MEM_T)) {                         \
                 if (ASC) {                                              \
