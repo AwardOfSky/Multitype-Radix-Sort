@@ -102,7 +102,9 @@
 
 
 /* main macro */
-#define RADIX_SORT_CORE(ARR, N, ASC, ARR_T, MEM_T, MEM) do {            \
+#define RADIX_SORT_CORE(ARR, N_, ASC_, ARR_T, MEM_T, MEM) do {          \
+    const int64_t N = N_;                                               \
+    const int64_t ASC = ASC_;                                           \
     ARR_T *h = (ARR_T *)malloc(N * sizeof(*h));                         \
     ARR_T *pointers[256];                                               \
     ARR_T *s;                                                           \
@@ -120,15 +122,17 @@
         }                                                               \
         s = h;                                                          \
         int32_t next = 0;                                               \
-        for (i = 0; i < 256; ++i) {                                     \
-            if(bucket[i] == N) {                                        \
-                SWAP_ARRS_R__(ARR, ARR_T);                              \
-                next = 1;                                               \
-                break;                                                  \
+        if (sizeof(MEM_T) * N > 1000) {                                 \
+            for (i = 0; i < 256; ++i) {                                 \
+                if(bucket[i] == N) {                                    \
+                    SWAP_ARRS_R__(ARR, ARR_T);                          \
+                    next = 1;                                           \
+                    break;                                              \
+                }                                                       \
             }                                                           \
-        }                                                               \
-        if (next) {                                                     \
-            continue;                                                   \
+            if (next) {                                                 \
+                continue;                                               \
+            }                                                           \
         }                                                               \
         swap = 1 - swap;                                                \
         if (IS_FLOATING_R__(MEM_T)) {                                   \
