@@ -108,7 +108,7 @@ Where:
  - `ASC` - `1` to sort in ascending order, `0` for descending.
  - `ARR_T` - Type of the array. For standard arrays this is one of the supported types, for structs, it is the type of the structure.
  - `MEM_T` - Type of the structure member to sort from (one of the standard types).
- - `MEM` - Name of the member in the array to sort from. (the actual name, no strings and no point; ex: `age`, for the field within struct `typedef strcut node { int age; int a; } node;`).
+ - `MEM` - Name of the member in the array to sort from. (the acessing method followed by the name ex: `.age`, for the field within struct `typedef strcut node { int age; int a; } node;`).
 
 
 ## Example
@@ -130,10 +130,16 @@ int main() {
 	// array allocs, inits, remaining code, etc...
 	
 	RADIX_SORT(f_arr, size, 1, float);
-	RADIX_SORT_STRUCT(n_arr, size, 0, node, int, age);
+	RADIX_SORT_STRUCT(n_arr, size, 0, node, int, .age);
 
 	return 0;
 }
+```
+
+Besides, if the array to sort has pointers to a structure as elements (_e.g._ `node **`), you can define member accessing with the arrow operator like so:
+
+```c
+RADIX_SORT_STRUCT(n_arr, size, 0, node *, int, ->age);
 ```
 
 A testing program `radix_final_test.c` is also provided to test the speed and correctness of all supported types in your machine.
