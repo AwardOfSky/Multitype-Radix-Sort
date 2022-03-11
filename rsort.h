@@ -106,11 +106,10 @@
     ARR_T *h = (ARR_T *)malloc(N * sizeof(*h));                         \
     ARR_T *pointers[256];                                               \
     ARR_T *s;                                                           \
-    int32_t swap = 1;                                                   \
+    int32_t swap = 0;                                                   \
     int32_t mbit;                                                       \
     for (mbit = 0; mbit < sizeof(MEM_T) << 3; mbit += 8) {              \
         if (mbit > 0) {                                                 \
-            swap = 1 - swap;                                            \
             SWAP_ARRS_R__(ARR, ARR_T);                                  \
         }                                                               \
         int64_t bucket[256] = {0};                                      \
@@ -123,6 +122,7 @@
         int32_t next = 0;                                               \
         for (i = 0; i < 256; ++i) {                                     \
             if(bucket[i] == N) {                                        \
+                SWAP_ARRS_R__(ARR, ARR_T);                              \
                 next = 1;                                               \
                 break;                                                  \
             }                                                           \
@@ -130,6 +130,7 @@
         if (next) {                                                     \
             continue;                                                   \
         }                                                               \
+        swap = 1 - swap;
         if (IS_FLOATING_R__(MEM_T)) {                                   \
             if (mbit == LAST_BYTE_R__(MEM_T)) {                         \
                 if (ASC) {                                              \
@@ -196,9 +197,9 @@
         }                                                               \
     }                                                                   \
     if (swap) {                                                         \
-        memcpy(ARR, h, sizeof(ARR_T) * N);                              \
-    } else {                                                            \
         SWAP_ARRS_R__(ARR, ARR_T);                                      \
+    } else {                                                            \
+        memcpy(ARR, h, sizeof(ARR_T) * N);                              \
     }                                                                   \
     free(h);                                                            \
 } while(0)
