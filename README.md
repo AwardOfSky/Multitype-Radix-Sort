@@ -13,7 +13,7 @@ With this paradigm, it is possible to break the nlog(n) time barrier for sorting
 Many people make the case against radix sort, arguing that comparison-based algorithms such as quicksorts (or variants thereof) are both "fast enough", easy to implement, and works for all types.<br>
 Ease of implementation is subjective so I will not dwell too much into it ... but programmer aside, doesn't it get a little annoying to have to always write your own comparison functions for each type for something like qsort() in C?<br>
 The argument that comparison sorts always work for all types is, in fact, the strongest point against radix sort. <br>
-While it is true that the way bucket assigning works for radix sort is dependent on the representation of the data, it is also true that, in essence, there are only three different bit representations to tackle: floating point, unsigned and signed. <br>
+While it is true that the way bucket assigning works for radix sort is dependent on the representation of data, it is also true that, in essence, there are only three different bit representations to tackle: floating point, unsigned and signed.<br>
 Besides, C has these dangerous things called macros that can either make you shoot yourself in the foot or make some real magic happen. <br>
 Regarding speed, saying that quicksort is "fast enough" as an argument is...well...cute.<br>
 
@@ -23,7 +23,7 @@ I understand that there are many cases where radix sort might not be preferred, 
 ## Description
 
 This repo provides a radix sort implementation that accommodates all standard (one-worded) C types and all types defined in stdint.h, sorting all these types in linear time.
-Radix sort is a **stable** sorting method, meaning every two numbers with the same value appear in the same order in the sorted output as they appear in the input.
+Radix sort is a **stable** sorting method, meaning every two elements with the same value appear in the same order in the sorted output as they appear in the input.
 
 
 The algorithm itself is a **LSD** (least significant digit) radix sort variant with **base 256** and some minor optimizations on top, thus sorting one byte of data (over the entire array) at a time.<br>
