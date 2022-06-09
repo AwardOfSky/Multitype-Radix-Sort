@@ -147,14 +147,14 @@ A testing program `radix_final_test.c` is also provided to test the speed and co
 <img src="example_console_log.png" alt="alt text" width="800">
 
 Compiled with (Linux): `gcc -std=c89 -Wall -Ofast radix_final_test.c -o radix`<br>
-Best performance results were verified for `-Ofast` when compared to `-O3`, even though the difference is not great.
-**Disclaimer for the less experienced:** `-Ofast` gives the expected program behaviour, however be careful when using this flag in your own program, as it enables fast math and other ttricks that may produce undefined behaviour for some standard compliant programs. `-O3` is the highest safest optimization in general.
+Best performance results were verified for `-Ofast` when compared to `-O3`, even though the difference is not great.<br>
+**Disclaimer for the less experienced:** `-Ofast` gives the expected program behaviour for this algorithm, however be careful when using this flag in your own programs as it enables fast math and other tricks that may produce undefined behaviour for some standard compliant programs. `-O3` is the highest safest optimization level for general use (and even so bugs exist).
 
 ## Limitations
 
 - This implementation follows an **out-of-place** approach, meaning it uses a helper array to sort the original array, adding memory overhead that can be critical for some memory heavy applications.
 - Because of the macro expansion mechanics, it is not possible to support rather common types such as `unisgned long long` or `long double`. This is really a limitation of using macros, not of the actual algorithm.
-- Because there is a need to arrange 256 buckets in each iteration, this algorithm might not be as performant as qsort() for smaller arrays. The turning point should still be for relatively small sizes nonetheless (typically for arrays of 100 to 1000 elements, depending on the machine and the type you are sorting).
+- Because there is a need to arrange 256 buckets in each iteration, this algorithm might not be as performant as qsort() for smaller arrays. The turning point should still be for relatively small sizes, nonetheless (typically for arrays of 100 to 1000 elements, depending on the machine and the type you are sorting).
 - It is assumed that a float is no larger than 4 bytes and that a double is no larger than 8 bytes (possibly some problems in some weird system(?)).
 
 ## Todo
