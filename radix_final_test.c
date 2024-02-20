@@ -98,7 +98,7 @@ typedef struct node {
     start = clock();                                        \
     RADIX_SORT_STRUCT(ARR, size, ASC, ARR_T, MEM_T, MEM);   \
     duration = (double)(clock() - start) / CLOCKS_PER_SEC;  \
-    CHECK_SORT_ARR(ARR, size, ASC, .MEM);                   \
+    CHECK_SORT_ARR(ARR, size, ASC, MEM);                    \
     printf("%s check for "#ARR_T" type array: %s! Sorted %d elements in: %.3fs (%.1f ns/el)\n", ASC == 1 ? "Ascending" : "Descending", check == 1 ? "passed" : "ERROR", size, duration, (1000000000.0 / (double)size) * duration);\
     if (check) passed_tests++;                              \
     total_tests++;                                          \
