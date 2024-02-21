@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
     int check = 0;
     clock_t start;
     double duration;
-    int size = 10000000;
+    int size = 1000000;
     if (argc >= 2) {
         size = atoi(argv[1]);
     }
